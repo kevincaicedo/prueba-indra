@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Registro"/>
+    <meta name="author" content="Kevin Caicedo"/>
+    <title>Registro</title>
+    <link rel="stylesheet" type="text/css"
+          href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cosmo/bootstrap.min.css"/>
+</h:head>
+<h:body>
+    <br/>
+    <div class="container">
+        <h:form onsubmit="">
+            <h:panelGroup layout="block" >
+                <div class="row">
+                    <div class="col-md-6">
+                        Registro
+                        <strong>
+                            <h:outputLabel  />
+                        </strong>
+                    </div>
+                </div>
+                <br/>
+            </h:panelGroup>
+
+            <div class="form-group">
+                <label for="dayOfMonthField">Limite</label>
+                <h:inputText id="dayOfMonthField"
+                             required="true"
+                             styleClass="form-control"
+                             autocomplete="off"
+                             value="#{calculoForm.limite}"
+                             converter="javax.faces.Integer"
+                             converterMessage="Debes ingresar solo numeros"
+                             rendered="true"
+                             requiredMessage="Campo Limite requerido"
+                             maxlength="3" />
+            </div>
+
+            <div class="form-group">
+                <label for="monthField">Usuario:</label>
+                <h:inputText id="monthField"
+                             value="#{calculoForm.usuario}"
+                             rendered="true"
+                             styleClass="form-control"
+                             requiredMessage="Campo Usuario Requerido"
+                             required="true"
+                             autocomplete="off" />
+            </div>
+
+            <br/>
+            <h:link value="Consulta Informacion" outcome="consulta.jsf" />
+            <br/>
+            <br/>
+            <h:commandButton type="submit" value="Calcular"
+                             action="#{registroController.saveCalculo}"
+                             styleClass="btn btn-primary"/>
+
+        </h:form>
+
+        <br/>
+        <h:messages id="messages" showSummary="true" />
+    </div>
+</h:body>
+</html>

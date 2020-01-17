@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  pgdb:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: Inventory2019*
+      POSTGRES_USER: inventory
+      POSTGRES_DB: inventory
+
+#  pgadmin4:
+#    image: fenglc/pgadmin4
+#    ports:
+#      - 5050:5050
+#    environment:
+#      DEFAULT_USER: inventory
+#      DEFAULT_PASSWORD: Inventory2019*
